@@ -1,0 +1,35 @@
+<?php 
+	$db = mysqli_connect('localhost', 'root', '', 'db_jobportal');
+	
+	    $namef = $_POST['FNAME'];
+	    $namel = $_POST['LNAME'];
+	    $namem = $_POST['MNAME'];
+	    $addressa = $_POST['ADDRESS'];
+	    $sex = $_POST['optionsRadios'];
+	    $montha = $_POST['month'];
+	    $daya = $_POST['day'];
+	    $yeara = $_POST['year'];
+	    $bop = $_POST['BIRTHPLACE'];
+	    $mob = $_POST['TELNO'];
+	    $email = $_POST['EMAILADDRESS'];
+	    $user = $_POST['USERNAME'];
+	    $email = $_POST['EMAILADDRESS'];
+	    $password = $_POST['PASS'];
+	    $degreea = $_POST['DEGREE'];
+	    $picturea = $_POST['picture'];
+	    $cst = $_POST['CIVILSTATUS'];
+		$company = $_POST['COMPANYNAME'];
+		
+		$h_upass = sha1($password);
+
+		$result = mysqli_query($db, "INSERT INTO `tblapplicants`(`APPLICANTID`, `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `SEX`, `CIVILSTATUS`, `BIRTHDATE`, `BIRTHPLACE`, `USERNAME`, `PASS`, `EMAILADDRESS`, `CONTACTNO`, `DEGREE`, 'COMPANYNAME') VALUES ($namef,$namel,$namem,$addressa,$sex,$cst,`$daya - $montha - $yeara`,$bop,$user,$h_pass,$email,$mob,$degreea,$company)");
+
+		if($result)
+		{
+			echo "Success!";
+		}
+		else
+		{
+			echo "FAILED!";
+		}
+?>
